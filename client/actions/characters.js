@@ -3,20 +3,23 @@ import request from 'superagent'
 export const receiveCharacters = (characters) => {
   return {
     type: 'RECEIVE_CHARACTERS',
-    greetings
+    characters
+  }
+}
+
+export const setErrorMessage = (message) => {
+  return {
+    type: 'SET_ERROR_MESSAGE',
+    errorMessage: message
   }
 }
 
 export function getCharacters () {
   return (dispatch) => {
-    request
-      .get(`/api/v1/characters`)
-      .end((err, res) => {
-        if (err) {
-          console.error(err.message)
-          return
-        }
-        dispatch(receiveCharacters(res.body))
+     request
+       .get(`${process.env.URL}/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`)
+       .end((err, res) => {
+        err ? dispatch(setErrorMessage("ERROR:" + err.message)) : dispatch(receiveCharacters(res.body))
       })
-  }
-}
+     }
+   }

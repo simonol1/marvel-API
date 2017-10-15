@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const router = require('superagent')
 
 var utils = require('../lib/utils')
 
@@ -15,6 +14,7 @@ router.get('/characters', (req, res) => {
     .set('Accept', 'application/json')
     .end((error, response) => {
       error ? console.log(error) : res.json(response.body)
+      console.log(res.json);
     })
 })
 
