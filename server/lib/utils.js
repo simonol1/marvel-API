@@ -4,9 +4,9 @@ function getTimeStamp() {
   return parseInt(Date.now() / 1000,10)
 }
 
-function createHash (timestamp, privateKey, publicKey) {
-  var preHash = timestamp + privateKey + publicKey
-    , hash    = crypto.createHash('md5').update(preHash).digest('hex');
+function createHash (timeStamp, privateKey, publicKey) {
+  var preHash = timeStamp + privateKey + publicKey
+  const hash    = crypto.createHash('md5').update(preHash).digest('hex');
   return hash;
 }
 

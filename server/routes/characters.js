@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const request = require('superagent')
 
 var utils = require('../lib/utils')
 
@@ -10,21 +11,13 @@ const publicKey = process.env.PUBLIC_KEY
 
 router.get('/characters', (req, res) => {
   request
-    .get(`${process.env.URL}/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`)
+    .get('https://gateway.marvel.com/v1/public/characters?apikey=e481756ef01f8f8ca6367e54de21f96f')
     .set('Accept', 'application/json')
     .end((error, response) => {
       error ? console.log(error) : res.json(response.body)
-      console.log(res.json);
+      console.log(response.body);
     })
 })
 
-router.get('/characters/:id', (req, res) => {
-  request
-    .get(`${process.env.URL}/v1/public/characters/${req.params.id}?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`)
-    .set('Accept', 'application/json')
-    .end((error,response) => {
-      error ? console.log(error) : res.json(response.body)
-    })
-})
 
 module.exports = router

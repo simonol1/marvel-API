@@ -17,9 +17,10 @@ export const setErrorMessage = (message) => {
 export function getCharacters () {
   return (dispatch) => {
      request
-       .get(`${process.env.URL}/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`)
+       .get('https://gateway.marvel.com/v1/public/characters?apikey=e481756ef01f8f8ca6367e54de21f96f')
        .end((err, res) => {
-        err ? dispatch(setErrorMessage("ERROR:" + err.message)) : dispatch(receiveCharacters(res.body))
+        err ? dispatch(setErrorMessage("ERROR:" + err.message)) : dispatch(receiveCharacters(res.body.data.results))
+        console.log(res.body)
       })
      }
    }
