@@ -3,20 +3,21 @@ import {connect} from 'react-redux'
 
 import {getCharacters} from '../actions/characters'
 
-  const renderCharacterDetails = (props) => (
+  const renderCharacterDetails = (props) => {
+      const info = props.description
+      const actualDescription = (info == "" )? "I'm the most exciting hero in the world...where is my description!!" : props.description
+      const comics = props.comics.items
+      return (
       <div>
         <h1>{props.name}</h1>
-        <p>Description: {characterDescription(props)} </p>
-        // <p>Comics:{props.comics.items.name}</p>
+        <p>{actualDescription}</p>
+        <h5>Comics:</h5>
+        <ul>
+            {comics.map((comic) => <span><li>{comic.name}</li></span> )}
+        </ul>
      </div>
     )
-
-  const characterDescription = (props) => {
-      props.forEach((prop) => {
-        props.description == "" ? "I'm the most exciting hero in the world...where is my description!!" : props.description
-      })
-  }
-
+}
   const Characters = ({character}) => {
       return (
         <div>

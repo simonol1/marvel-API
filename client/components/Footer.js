@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <p>"Data provided by Marvel. © 2014 Marvel" </p>
+        <div className="footer">
+            <p>"Data provided by Marvel. © 2014 Marvel" </p>
+        </div>
     )
 }
 
