@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const CharacterList = (props) => {
   let c = props.character
@@ -8,7 +9,9 @@ const CharacterList = (props) => {
   return (
     <span>
       <div>
-        <h2>{c.name}</h2>
+        <button>
+        <Link to={CharacterDetails}>{c.name}</Link>
+        </button>
         <img src={imagePath} alt={c.name}/>
       </div>
     </span>
