@@ -14,12 +14,8 @@ div {
     display: inline-block;
 }
 
-p {
-    color: white;
-    text-align: center;
-}
 
-h2 {
+h1 , h2 , p {
     color: white;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -30,6 +26,11 @@ img {
     margin-left: 80px;
     margin-right: 80px;
     margin-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: White;
 }
 
 

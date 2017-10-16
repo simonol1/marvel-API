@@ -1,17 +1,19 @@
 import React from 'react'
-import {HashRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 import Characters from './Characters'
+import CharacterDetails from './CharacterDetails'
 import Footer from './Footer'
 
-const App = () => (
-  <Router>
+const App = (props) => (
+  <BrowserRouter>
     <div className='app-container'>
       <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqmOQXn9ai3iH3IcyHW7bHPmaBUF6AI_HLZWFXJZ3_kF94CpN-' id='header_image'/>
-      <Characters />
+      <Route exact path="/" component={Characters} />
+      <Route path='/details/:id' component={CharacterDetails}/>
       <Footer />
     </div>
-  </Router>
+  </BrowserRouter>
 )
 
 export default App
