@@ -1,13 +1,17 @@
 import React from 'react'
 
 const CharacterList = (props) => {
-    let c = props.character
+  let c = props.character
+  let ext = c.thumbnail.extension
+  let path = c.thumbnail.path
+  let imagePath = path + "/portrait_incredible." + ext
   return (
-    <div>
+    <span>
+      <div>
         <h2>{c.name}</h2>
-        <p>{c.description}</p>
-        <img src={c.thumbnail.path} alt={c.name}/>
-    </div>
+        <img src={imagePath} alt={c.name}/>
+      </div>
+    </span>
   )
 }
 
