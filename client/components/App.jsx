@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 
-import Heaser from './Header'
+import Header from './Header'
 import Characters from './Characters'
 import CharacterDetails from './CharacterDetails'
 import Footer from './Footer'

@@ -12,9 +12,9 @@ import {getCharacters} from '../actions/characters'
     )
 
   const characterDescription = (props) => {
-      for(const i = 0;i < 100; i++) {
-        (props.description == "") ? "I'm the most exciting hero in the world...where is my description!!" : props.description
-      }
+      props.forEach((prop) => {
+        props.description == "" ? "I'm the most exciting hero in the world...where is my description!!" : props.description
+      })
   }
 
   const Characters = ({character}) => {
