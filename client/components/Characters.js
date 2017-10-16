@@ -25,7 +25,7 @@ class Characters extends React.Component {
   render() {
     return (
         <div>
-          {this.state.characters.map((character,idx) => <CharacterList character={character} key={idx} />)}
+          {this.state.characters.map((character) => <CharacterList character={character} />)}
         </div>
     )
   }
