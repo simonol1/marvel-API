@@ -1,7 +1,12 @@
+
 body {
-  background-color: "blue";
+    background-color: black;
 }
 
-button {
-  background-color: "red";
+p {
+    color: white;
+}
+
+h2 {
+    color: white;
 }
