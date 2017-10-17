@@ -4,36 +4,37 @@ import {connect} from 'react-redux'
 import {getCharacters} from '../actions/characters'
 import CharacterList from './CharacterList'
 
+
 class Characters extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      characters: []
-    }
-  }
+
   componentWillMount() {
-    this.props.dispatch(getCharacters())
+    console.log(this.props);
+    if (this.props.characters.length === 0) {
+      this.props.dispatch(getCharacters())
+    };
   }
-
-  componentWillReceiveProps({characters}) {
-    this.setState({
-      characters: characters
-    })
-  }
-
 
   render() {
+    const { loading } = this.props;
+
     return (
         <div>
-          {this.state.characters.map((character, id) => <CharacterList character={character} key={id} />)}
+          {loading &&
+            <img src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-32.gif"/> 
+          }
+          {!loading &&
+           this.props.characters.map((character) => <CharacterList character={character} key={character.id} />)}
+          }
         </div>
     )
   }
 }
 
-
 const mapStateToProps = (state) => {
-  return {characters: state.characters}
+  return {
+    characters: state.characters.results,
+    loading: state.characters.loading
+  }
 
 }
 
